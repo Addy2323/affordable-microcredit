@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  password  String
+  name      String?
+  role      String    @default("admin")
+  sessions  Session[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Client {
+  id             String   @id @default(uuid())
+  name           String
+  email          String   @unique
+  phone          String
+  type           String   // Individual, SME, Group
+  registeredDate DateTime @default(now())
+  status         String   @default("active") // active, inactive, defaulter
+  totalBorrowed  Float    @default(0)
+  totalLoans     Int      @default(0)
+  activeLoans    Int      @default(0)
+  loans          Loan[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Loan {
+  id            String   @id @default(uuid())
+  clientId      String
+  client        Client   @relation(fields: [clientId], references: [id])
+  clientName    String   // Redundant but kept for compatibility with existing UI
+  loanType      String
+  amount        Float
+  disbursedDate DateTime @default(now())
+  dueDate       DateTime
+  interestRate  Float
+  amountPaid    Float    @default(0)
+  status        String   @default("active") // active, overdue, completed
+  nextPayment   DateTime?
+  nextAmount    Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Application {
+  id               String   @id @default(uuid())
+  client           String
+  email            String
+  phone            String
+  type             String
+  amount           String   // e.g., "TZS 2,500,000"
+  amountNumber     Float
+  purpose          String
+  status           String   @default("Pending") // Pending, Approved, Rejected, Under Review
+  submittedDate    DateTime @default(now())
+  risk             String   // Low, Medium, High
+  creditScore      Int
+  employmentStatus String
+  monthlyIncome    String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Activity {
+  id        String   @id @default(uuid())
+  action    String
+  details   String
+  user      String
+  time      DateTime @default(now())
+  createdAt DateTime @default(now())
+}
