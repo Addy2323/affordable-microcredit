@@ -19,10 +19,8 @@ import {
 export function About() {
   const coreValues = [
     "Integrity",
-    "Transparency",
-    "Customer Commitment",
-    "Accountability",
-    "Professionalism",
+    "Respect and Dignity",
+    "Fairness and Honesty",
   ];
 
   const branches = [
@@ -180,10 +178,12 @@ export function About() {
                     Our Vision
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  To become a leading and trusted microfinance institution that
-                  transforms lives through accessible and affordable financial solutions.
-                </p>
+                <ul className="text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc pl-4 space-y-1">
+                  <li>
+                    To be a leading financial institution who provides excellent and
+                    affordable services to low income earners families, in order to improve lives.
+                  </li>
+                </ul>
               </motion.div>
 
               <motion.div
@@ -199,11 +199,14 @@ export function About() {
                     Our Mission
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  To provide reliable, affordable, and customer-focused financial services
-                  that empower individuals and small businesses to grow and improve
-                  their quality of life.
-                </p>
+                <ul className="text-xs sm:text-sm text-muted-foreground leading-relaxed list-disc pl-4 space-y-2">
+                  <li>Improving lives through affordable credit.</li>
+                  <li>
+                    To provide micro-small and medium entrepreneurs to manage
+                    their financial resources effectively and by doing so to
+                    improve the quality of their living.
+                  </li>
+                </ul>
               </motion.div>
             </div>
 
