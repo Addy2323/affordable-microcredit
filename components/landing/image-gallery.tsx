@@ -8,7 +8,7 @@ export function ImageGallery() {
         { src: "/images/Micro_35-1-1.jpg.jpeg", alt: "Office Activity" },
         { src: "/images/Micro_37-1-1.jpg.jpeg", alt: "Team Meeting" },
         { src: "/images/Micro_60-1-1.jpg.jpeg", alt: "Customer Interaction" },
-        { src: "/images/Micro_69-1-1.jpg.jpeg", alt: "Modern Office" },
+        { src: "/images/aford-69.jpeg", alt: "Modern Office" },
         { src: "/images/team1.jpg.jpeg", alt: "Our Team" },
         { src: "/images/team2.jpg.jpeg", alt: "Operations" },
     ];

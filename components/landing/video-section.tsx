@@ -37,12 +37,13 @@ export function VideoSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     <video
-                        className="w-full h-full object-cover aspect-video"
+                        className="w-full h-auto object-cover aspect-video"
                         autoPlay
-                        muted
                         loop
                         playsInline
+                        controls
                         poster="/images/Micro_69-1-1.jpg.jpeg"
+                        src="/images/video.mp4"
                     >
                         <source src="/images/video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
