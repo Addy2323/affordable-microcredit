@@ -49,17 +49,6 @@ export function VideoSection() {
                         Your browser does not support the video tag.
                     </video>
 
-                    {/* Floating Play Button Indicator */}
-                    <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                            className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/90 text-primary-foreground rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm group-hover:scale-110 transition-transform duration-300"
-                        >
-                            <Play className="h-8 w-8 sm:h-10 sm:w-10 fill-current" />
-                        </motion.div>
-                    </div>
 
                     {/* Bottom Info Bar */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
